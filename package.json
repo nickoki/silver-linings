@@ -1,0 +1,25 @@
+{
+  "name": "silver-linings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickoki/silver-linings.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickoki/silver-linings/issues"
+  },
+  "homepage": "https://github.com/nickoki/silver-linings#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.5.1",
+    "twit": "^2.2.5"
+  }
+}

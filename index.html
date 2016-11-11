@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="silverLinings">
+  <head>
+    <meta charset="utf-8">
+    <title>Silver Linings</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-resource.min.js"></script>
+    <script>
+      var socket = io()
+
+      angular.module("silverLinings", [
+        "ngResource"
+      ])
+      .controller("TweetController", [
+      "$scope",
+      // "TweetFactory",
+      TweetControllerFunction
+      ])
+
+      function TweetControllerFunction($scope) {
+
+        this.tweets = []
+
+        socket.emit('tweets', "test")
+
+        socket.on('tweets', tweets => {
+          if (tweets) {
+            $scope.$apply(() => {
+              this.tweets = tweets
+            })
+          }
+        })
+      }
+    </script>
+  </head>
+  <body ng-controller="TweetController as vm">
+    <ul id="messages">
+      <li data-ng-repeat="tweet in vm.tweets track by $index">{{tweet}}</li>
+    </ul>
+  </body>
+</html>
